@@ -74,15 +74,61 @@ interface ElementMetadataInterface
      */
     public function getOptionMeta() : OptionMetadataInterface;
 
+    /**
+     * Set destination
+     *
+     * Set the destination of the extracted data into the DTO during bridge process
+     *
+     * @return ElementMetadataInterface
+     */
     public function setDestination(string $destination) : ElementMetadataInterface;
 
+    /**
+     * Get destination
+     *
+     * return the destination of the extracted data into the DTO during bridge process
+     *
+     * @return string
+     */
     public function getDestination() : string;
 
+    /**
+     * Set pre parser
+     *
+     * Set the DTO builder pre-parser instance
+     *
+     * @param ParserInterface $parser The pre-parser instance
+     *
+     * @return $this
+     */
     public function setPreParser(ParserInterface $parser) : ElementMetadataInterface;
 
+    /**
+     * Get pre parser
+     *
+     * Return the DTO builder pre-parser instance
+     *
+     * @return ParserInterface
+     */
     public function getPreParser() : ParserInterface;
 
+    /**
+     * Set post parser
+     *
+     * Set the DTO builder post-parser instance
+     *
+     * @param ParserInterface $parser The post-parser instance
+     *
+     * @return ElementMetadataInterface
+     */
     public function setPostParser(ParserInterface $parser) : ElementMetadataInterface;
 
+    /**
+     * Get post parser
+     *
+     * Return the DTO builder post-parser instance
+     *
+     * @return ParserInterface
+     */
     public function getPostParser() : ParserInterface;
 }
