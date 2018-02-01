@@ -79,6 +79,8 @@ interface ElementMetadataInterface
      *
      * Set the destination of the extracted data into the DTO during bridge process
      *
+     * @param string $destination The destination into the DTO
+     *
      * @return ElementMetadataInterface
      */
     public function setDestination(string $destination) : ElementMetadataInterface;
@@ -86,7 +88,7 @@ interface ElementMetadataInterface
     /**
      * Get destination
      *
-     * return the destination of the extracted data into the DTO during bridge process
+     * Return the destination of the extracted data into the DTO during bridge process
      *
      * @return string
      */

@@ -68,4 +68,3 @@ trait ElementSourceTrait
         return $this->sourceMetadata;
     }
 }
-

@@ -67,4 +67,3 @@ trait SourceNameTrait
         return $this->name;
     }
 }
-

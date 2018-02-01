@@ -131,8 +131,8 @@ trait SourceLocationTrait
                 sprintf(
                     'The format "%s" is invalid. Refer to SourceMetadataInterface::LOCATION_*',
                     $location
-                    )
-                );
+                )
+            );
         }
 
         return;
@@ -162,4 +162,3 @@ trait SourceLocationTrait
         );
     }
 }
-

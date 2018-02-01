@@ -55,4 +55,3 @@ class ElementMetadataTest extends TestCase
         return ElementMetadata::class;
     }
 }
-

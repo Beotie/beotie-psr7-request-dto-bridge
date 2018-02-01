@@ -68,4 +68,3 @@ trait ElementOptionTrait
         return $this->optionMetadata;
     }
 }
-

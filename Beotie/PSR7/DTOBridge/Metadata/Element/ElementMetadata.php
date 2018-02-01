@@ -39,4 +39,3 @@ class ElementMetadata implements ElementMetadataInterface
         ElementParserTrait,
         ElementSourceTrait;
 }
-

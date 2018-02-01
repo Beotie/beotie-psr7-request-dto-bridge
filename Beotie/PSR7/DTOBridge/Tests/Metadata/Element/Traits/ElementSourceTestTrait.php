@@ -37,7 +37,7 @@ trait ElementSourceTestTrait
      *
      * This method validate the ElementSourceTrait::setSourceMeta logic
      *
-     * @return       void
+     * @return void
      */
     public function testSetSourceMeta()
     {
@@ -60,7 +60,7 @@ trait ElementSourceTestTrait
      *
      * This method validate the ElementSourceTrait::getSourceMeta logic
      *
-     * @return       void
+     * @return void
      */
     public function testGetSourceMeta()
     {
@@ -97,4 +97,3 @@ trait ElementSourceTestTrait
      */
     protected abstract function getTestCase() : TestCase;
 }
-

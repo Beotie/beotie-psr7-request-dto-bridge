@@ -104,4 +104,3 @@ trait ElementParserTrait
         return $this->postParser;
     }
 }
-
