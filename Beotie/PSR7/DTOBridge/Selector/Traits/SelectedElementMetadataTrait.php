@@ -52,4 +52,3 @@ trait SelectedElementMetadataTrait
         return $this->metadata;
     }
 }
-

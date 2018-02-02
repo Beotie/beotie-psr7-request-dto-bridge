@@ -68,4 +68,3 @@ class SelectedElementTest extends TestCase
         return SelectedElement::class;
     }
 }
-

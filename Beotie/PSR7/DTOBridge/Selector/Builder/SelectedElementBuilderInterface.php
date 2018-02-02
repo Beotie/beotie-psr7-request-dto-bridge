@@ -14,16 +14,15 @@ declare(strict_types=1);
  * @license  MIT <https://opensource.org/licenses/MIT>
  * @link     http://cscfa.fr
  */
-namespace Beotie\PSR7\DTOBridge\Selector;
+namespace Beotie\PSR7\DTOBridge\Selector\Builder;
 
-use Beotie\PSR7\DTOBridge\Selector\Traits\SelectedElementMetadataTrait;
-use Beotie\PSR7\DTOBridge\Selector\Traits\SelectedElementValueTrait;
 use Beotie\PSR7\DTOBridge\Metadata\Element\ElementMetadataInterface;
+use Beotie\PSR7\DTOBridge\Selector\SelectedElementInterface;
 
 /**
- * SelectedElement
+ * SelectedElement builder interface
  *
- * This class is used to represent a resolved request element
+ * This interface is used to define the base method of the SelectedElementBuilder
  *
  * @category Bridge
  * @package  Beotie_Psr7_Request_Dto_Bridge
@@ -31,23 +30,17 @@ use Beotie\PSR7\DTOBridge\Metadata\Element\ElementMetadataInterface;
  * @license  MIT <https://opensource.org/licenses/MIT>
  * @link     http://cscfa.fr
  */
-class SelectedElement implements SelectedElementInterface
+interface SelectedElementBuilderInterface
 {
-    use SelectedElementMetadataTrait, SelectedElementValueTrait;
-
     /**
-     * Construct
+     * Get new SelectedElement
      *
-     * The original SelectedElement constructor
+     * Return a newly builded SelectedElement
      *
      * @param ElementMetadataInterface $metadata The main metadata at the extraction origin
      * @param mixed                    $value    The extracted value
      *
-     * @return void
+     * @return SelectedElementInterface
      */
-    public function __construct(ElementMetadataInterface $metadata, $value)
-    {
-        $this->metadata = $metadata;
-        $this->value = $value;
-    }
+    public function getNewSelectedElement(ElementMetadataInterface $metadata, $value) : SelectedElementInterface;
 }

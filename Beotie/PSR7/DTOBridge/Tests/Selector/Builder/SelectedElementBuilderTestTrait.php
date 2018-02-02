@@ -14,15 +14,16 @@ declare(strict_types=1);
  * @license  MIT <https://opensource.org/licenses/MIT>
  * @link     http://cscfa.fr
  */
-namespace Beotie\PSR7\DTOBridge\Tests\Selector\Traits;
+namespace Beotie\PSR7\DTOBridge\Tests\Selector\Builder;
 
 use Beotie\LibTest\Traits\TestTrait;
 use Beotie\PSR7\DTOBridge\Metadata\Element\ElementMetadataInterface;
+use Beotie\PSR7\DTOBridge\Selector\SelectedElement;
 
 /**
- * Selected element metadata test trait
+ * Selected element builder test trait
  *
- * This class is used to validate the SelectedElementMetadataTrait
+ * This class is used to validate the SelectedElementBuilderTrait
  *
  * @category Test
  * @package  Beotie_Psr7_Request_Dto_Bridge
@@ -30,27 +31,28 @@ use Beotie\PSR7\DTOBridge\Metadata\Element\ElementMetadataInterface;
  * @license  MIT <https://opensource.org/licenses/MIT>
  * @link     http://cscfa.fr
  */
-trait SelectedElementMetadataTestTrait
+trait SelectedElementBuilderTestTrait
 {
     use TestTrait;
 
     /**
-     * Test getMetadata
+     * Test getNewSelectedElement
      *
-     * This method is used to validate the SelectedElementMetadataTrait::getMetadata method logic
+     * This method is used to validate the SelectedElementBuilderTrait::getNewSelectedElement method logic
      *
      * @return void
      */
-    public function testGetMetadata() : void
+    public function testGetNewSelectedElement()
     {
         $instance = $this->createEmptyInstance();
 
         $metadata = $this->getTestCase()->getMockBuilder(ElementMetadataInterface::class)->getMock();
+        $value = new \stdClass();
 
-        $this->setValue($instance, 'metadata', $metadata);
+        $selectedElement = $instance->getNewSelectedElement($metadata, $value);
 
-        $this->getTestCase()->assertSame($metadata, $instance->getMetadata());
-
-        return;
+        $this->getTestCase()->assertInstanceOf(SelectedElement::class, $selectedElement);
+        $this->getTestCase()->assertSame($metadata, $this->getValue($selectedElement, 'metadata'));
+        $this->getTestCase()->assertSame($value, $this->getValue($selectedElement, 'value'));
     }
 }

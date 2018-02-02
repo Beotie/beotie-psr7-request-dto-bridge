@@ -14,14 +14,12 @@ declare(strict_types=1);
  * @license  MIT <https://opensource.org/licenses/MIT>
  * @link     http://cscfa.fr
  */
-namespace Beotie\PSR7\DTOBridge\Selector;
-
-use Beotie\PSR7\DTOBridge\Metadata\Element\ElementMetadataInterface;
+namespace Beotie\PSR7\DTOBridge\Selector\Builder;
 
 /**
- * Selected element interface
+ * SelectedElement builder
  *
- * This interface define the main methods provided by a selected element
+ * This class is used to build the SelectedElement instances
  *
  * @category Bridge
  * @package  Beotie_Psr7_Request_Dto_Bridge
@@ -29,23 +27,7 @@ use Beotie\PSR7\DTOBridge\Metadata\Element\ElementMetadataInterface;
  * @license  MIT <https://opensource.org/licenses/MIT>
  * @link     http://cscfa.fr
  */
-interface SelectedElementInterface
+class SelectedElementBuider implements SelectedElementBuilderInterface
 {
-    /**
-     * Get metadata
-     *
-     * Return the main metadata at the extraction origin
-     *
-     * @return ElementMetadataInterface
-     */
-    public function getMetadata() : ElementMetadataInterface;
-
-    /**
-     * Get value
-     *
-     * Return the extracted value
-     *
-     * @return mixed
-     */
-    public function getValue();
+    use SelectedElementBuilderTrait;
 }

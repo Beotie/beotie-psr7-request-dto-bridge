@@ -50,4 +50,3 @@ trait SelectedElementValueTrait
         return $this->value;
     }
 }
-

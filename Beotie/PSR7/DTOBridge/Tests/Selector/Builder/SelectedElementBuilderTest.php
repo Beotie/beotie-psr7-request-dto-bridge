@@ -8,20 +8,22 @@ declare(strict_types=1);
  *
  * PHP version 7.1
  *
- * @category Test
+ * @category Bridge
  * @package  Beotie_Psr7_Request_Dto_Bridge
  * @author   matthieu vallance <matthieu.vallance@cscfa.fr>
  * @license  MIT <https://opensource.org/licenses/MIT>
  * @link     http://cscfa.fr
  */
-namespace Beotie\PSR7\DTOBridge\Tests\Selector\Traits;
+namespace Beotie\PSR7\DTOBridge\Tests\Selector\Builder;
 
-use Beotie\LibTest\Traits\TestTrait;
+use PHPUnit\Framework\TestCase;
+use Beotie\LibTest\Traits\TestCaseTrait;
+use Beotie\PSR7\DTOBridge\Selector\Builder\SelectedElementBuider;
 
 /**
- * Selected element value test trait
+ * SelectedElement builder test
  *
- * This class is used to validate the SelectedElementValueTrait
+ * This class is used to validate the SelectedElementBuilder class logic
  *
  * @category Test
  * @package  Beotie_Psr7_Request_Dto_Bridge
@@ -29,25 +31,19 @@ use Beotie\LibTest\Traits\TestTrait;
  * @license  MIT <https://opensource.org/licenses/MIT>
  * @link     http://cscfa.fr
  */
-trait SelectedElementValueTestTrait
+class SelectedElementBuilderTest extends TestCase
 {
-    use TestTrait;
+    use TestCaseTrait, SelectedElementBuilderTestTrait;
 
     /**
-     * Test getValue
+     * Get tested instance
      *
-     * This method is used to validate the SelectedElementValueTrait::getValue method logic
+     * Return the tested instance name
      *
-     * @return void
+     * @return string
      */
-    public function testGetValue() : void
+    protected function getTestedInstance() : string
     {
-        $instance = $this->createEmptyInstance();
-
-        $value = new \stdClass();
-
-        $this->setValue($instance, 'value', $value);
-
-        $this->getTestCase()->assertSame($value, $instance->getValue());
+        return SelectedElementBuider::class;
     }
 }
