@@ -17,7 +17,7 @@ declare(strict_types=1);
 namespace Beotie\PSR7\DTOBridge\Selector\Event;
 
 use Beotie\PSR7\DTOBridge\Metadata\Element\ElementMetadataInterface;
-use Psr\Http\Message\RequestInterface;
+use Psr\Http\Message\ServerRequestInterface;
 use Beotie\PSR7\DTOBridge\Selector\RequestElementSelectorInterface;
 use Beotie\PSR7\DTOBridge\Selector\Builder\SelectedElementBuilderInterface;
 use Beotie\PSR7\DTOBridge\Selector\SelectedElementInterface;
@@ -69,9 +69,9 @@ interface SelectionEventInterface
      *
      * Return the request processed
      *
-     * @return RequestInterface
+     * @return ServerRequestInterface
      */
-    public function getRequest() : RequestInterface;
+    public function getRequest() : ServerRequestInterface;
 
     /**
      * Get selector

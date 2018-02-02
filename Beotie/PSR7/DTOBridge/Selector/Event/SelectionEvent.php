@@ -19,9 +19,9 @@ namespace Beotie\PSR7\DTOBridge\Selector\Event;
 use Symfony\Component\EventDispatcher\Event;
 use Beotie\PSR7\DTOBridge\Selector\SelectedElementInterface;
 use Beotie\PSR7\DTOBridge\Metadata\Element\ElementMetadataInterface;
-use Psr\Http\Message\RequestInterface;
 use Beotie\PSR7\DTOBridge\Selector\RequestElementSelectorInterface;
 use Beotie\PSR7\DTOBridge\Selector\Builder\SelectedElementBuilderInterface;
+use Psr\Http\Message\ServerRequestInterface;
 
 /**
  * Selection event interface
@@ -50,7 +50,7 @@ class SelectionEvent extends Event implements SelectionEventInterface
      *
      * The processed request
      *
-     * @var RequestInterface
+     * @var ServerRequestInterface
      */
     private $request;
 
@@ -87,7 +87,7 @@ class SelectionEvent extends Event implements SelectionEventInterface
      * The original SelectionEvent constructor
      *
      * @param ElementMetadataInterface        $metadata the metadata initiating the process
-     * @param RequestInterface                $request  the processed request
+     * @param ServerRequestInterface          $request  the processed request
      * @param RequestElementSelectorInterface $selector the processing RequestElementSelector instance
      * @param SelectedElementBuilderInterface $builder  the SelectedElementBuilder in charge of the SelectedElement
      *                                                  building
@@ -96,7 +96,7 @@ class SelectionEvent extends Event implements SelectionEventInterface
      */
     public function __construct(
         ElementMetadataInterface $metadata,
-        RequestInterface $request,
+        ServerRequestInterface $request,
         RequestElementSelectorInterface $selector,
         SelectedElementBuilderInterface $builder
     ) {
@@ -123,9 +123,9 @@ class SelectionEvent extends Event implements SelectionEventInterface
      *
      * Return the request processed
      *
-     * @return RequestInterface
+     * @return ServerRequestInterface
      */
-    public function getRequest() : RequestInterface
+    public function getRequest() : ServerRequestInterface
     {
         return $this->request;
     }

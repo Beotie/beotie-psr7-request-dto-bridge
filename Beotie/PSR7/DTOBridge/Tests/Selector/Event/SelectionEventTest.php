@@ -21,11 +21,11 @@ use Beotie\LibTest\Traits\TestTrait;
 use Beotie\PSR7\DTOBridge\Selector\Event\SelectionEvent;
 use PHPUnit\Framework\TestCase;
 use Beotie\PSR7\DTOBridge\Metadata\Element\ElementMetadata;
-use Psr\Http\Message\RequestInterface;
 use Beotie\PSR7\DTOBridge\Selector\RequestElementSelectorInterface;
 use Beotie\PSR7\DTOBridge\Selector\Builder\SelectedElementBuilderInterface;
 use PHPUnit\Framework\MockObject\MockObject;
 use Beotie\PSR7\DTOBridge\Selector\SelectedElementInterface;
+use Psr\Http\Message\ServerRequestInterface;
 
 /**
  * Selection event test
@@ -52,7 +52,7 @@ class SelectionEventTest extends TestCase
     public function testConstruct()
     {
         $metadata = $this->createMock(ElementMetadata::class);
-        $request = $this->createMock(RequestInterface::class);
+        $request = $this->createMock(ServerRequestInterface::class);
         $selector = $this->createMock(RequestElementSelectorInterface::class);
         $builder = $this->createMock(SelectedElementBuilderInterface::class);
 
@@ -80,7 +80,7 @@ class SelectionEventTest extends TestCase
                 'getMetadata'
             ],
             [
-                $this->createMock(RequestInterface::class),
+                $this->createMock(ServerRequestInterface::class),
                 'request',
                 'getRequest'
             ],
